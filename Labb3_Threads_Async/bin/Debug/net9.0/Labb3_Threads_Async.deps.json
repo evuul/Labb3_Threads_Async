@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Labb3_Threads_Async/1.0.0": {
+        "runtime": {
+          "Labb3_Threads_Async.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Labb3_Threads_Async/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

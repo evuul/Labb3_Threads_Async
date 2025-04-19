@@ -1,0 +1,14 @@
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/bin/Debug/net9.0/Labb3_Threads_Async
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/bin/Debug/net9.0/Labb3_Threads_Async.deps.json
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/bin/Debug/net9.0/Labb3_Threads_Async.runtimeconfig.json
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/bin/Debug/net9.0/Labb3_Threads_Async.dll
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/bin/Debug/net9.0/Labb3_Threads_Async.pdb
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.AssemblyInfoInputs.cache
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.AssemblyInfo.cs
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.csproj.CoreCompileInputs.cache
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.dll
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/refint/Labb3_Threads_Async.dll
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.pdb
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.genruntimeconfig.cache
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/ref/Labb3_Threads_Async.dll
