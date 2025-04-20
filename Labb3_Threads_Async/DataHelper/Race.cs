@@ -4,53 +4,45 @@ public class Race
 {
     private readonly List<Car> cars = new();
     private readonly object lockObject = new();
-    private readonly ManualResetEvent startSignal = new(false);
-    private readonly List<Thread> threads = new();
+    private readonly TaskCompletionSource<bool> startSignal = new();
     private int placementCounter = 0;
     private DateTime raceStartTime;
     private bool raceFinished = false;
 
-    public void StartRace()
+    public async Task StartRace()
     {
         Console.WriteLine("Välkommen till biltävlingen!");
         Console.WriteLine("Under tävlingen kan du skriva 'status' eller trycka på Enter för att se uppdateringar.");
         Console.WriteLine("Tryck på Enter för att starta tävlingen.");
 
         AddCars();
-
-        foreach (var car in cars)
-        {
-            Thread carThread = new(() => CarRace(car));
-            threads.Add(carThread);
-            carThread.Start();
-        }
-
-        Thread statusThread = new(CheckForStatusInput) { IsBackground = true };
-        statusThread.Start();
-
+        
+        // Wait for initial enter press
         Console.ReadLine();
+
+        // Start status checking task
+        var statusTask = CheckForStatusInputAsync();
 
         for (int i = 3; i > 0; i--)
         {
             Console.Clear();
             Console.WriteLine($"🚦 Start om {i}...");
-            Thread.Sleep(1000);
+            await Task.Delay(1000);
         }
 
         Console.Clear();
         Console.WriteLine("🔥 TÄVLINGEN STARTAR NU! VROOOOM! 🔥");
-        raceStartTime = DateTime.Now; // Sparar starttiden
-        startSignal.Set();
+        raceStartTime = DateTime.Now;
+        startSignal.SetResult(true);
 
-        foreach (var thread in threads)
-        {
-            thread.Join();
-        }
+        // Start all car tasks and wait for completion
+        var carTasks = cars.Select(car => CarRaceAsync(car)).ToArray();
+        await Task.WhenAll(carTasks);
 
         Console.WriteLine("\n🏁 Tävlingen är slut! Här är resultaten:");
         string[] medals = { "🥇", "🥈", "🥉" };
 
-        // Skriv ut slutresultat
+        // Print final results
         foreach (var car in cars.OrderBy(c => c.Placement))
         {
             string medal = car.Placement - 1 < 3 ? medals[car.Placement - 1] : $"#{car.Placement}";
@@ -68,9 +60,9 @@ public class Race
         cars.Add(new Car("Mazda MX-5"));
     }
 
-    private void CarRace(Car car)
+    private async Task CarRaceAsync(Car car)
     {
-        startSignal.WaitOne();
+        await startSignal.Task;
 
         Console.WriteLine($"{car.Name} startar!");
 
@@ -93,19 +85,16 @@ public class Race
                     int currentPlacement = placementCounter;
                     double totalTime = (DateTime.Now - raceStartTime).TotalSeconds;
 
-                    // Sätt värdena i Car-objektet
                     car.Placement = currentPlacement;
                     car.TotalTime = totalTime;
 
-                    // Skriv ut när bilen går i mål
                     Console.WriteLine($"{car.Name} har kommit i mål på plats {currentPlacement}.");
-                    
+
                     if (currentPlacement == 1)
                     {
                         Console.WriteLine("👏👏👏 Publiken jublar och applåderar! 👏👏👏");
                     }
 
-                    // Markera tävlingen som avslutad när alla bilar gått i mål
                     if (currentPlacement == cars.Count)
                     {
                         raceFinished = true;
@@ -114,15 +103,15 @@ public class Race
                 break;
             }
 
-            Thread.Sleep(1000);
+            await Task.Delay(1000);
         }
     }
 
-    private void CheckForStatusInput()
+    private async Task CheckForStatusInputAsync()
     {
         while (true)
         {
-            string input = Console.ReadLine()?.Trim().ToLower();
+            string input = await Task.Run(() => Console.ReadLine()?.Trim().ToLower());
             if (string.IsNullOrEmpty(input) || input == "status")
             {
                 PrintStatus();

@@ -7,6 +7,6 @@ class Program
     static async Task Main(string[] args)
     {
         var race = new Race();
-        race.StartRace();
+        await race.StartRace();
     }
 }
