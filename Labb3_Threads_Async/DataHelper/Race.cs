@@ -1,5 +1,3 @@
-using System.Collections.Concurrent;
-
 namespace Labb3_Threads_Async.DataHelper;
 
 public class Race
@@ -15,7 +13,8 @@ public class Race
     public void StartRace()
     {
         Console.WriteLine("Välkommen till biltävlingen!");
-        Console.WriteLine("Du kan skriva 'status' eller trycka på enter för uppdateringar.");
+        Console.WriteLine("Under tävlingen kan du skriva 'status' eller trycka på Enter för att se uppdateringar.");
+        Console.WriteLine("Tryck på Enter för att starta tävlingen.");
 
         AddCars();
 
@@ -29,7 +28,6 @@ public class Race
         Thread statusThread = new(CheckForStatusInput) { IsBackground = true };
         statusThread.Start();
 
-        Console.WriteLine("Tryck på Enter för att starta tävlingen...");
         Console.ReadLine();
 
         for (int i = 3; i > 0; i--)
@@ -41,7 +39,7 @@ public class Race
 
         Console.Clear();
         Console.WriteLine("🔥 TÄVLINGEN STARTAR NU! VROOOOM! 🔥");
-        raceStartTime = DateTime.Now; // Spara starttiden
+        raceStartTime = DateTime.Now; // Sparar starttiden
         startSignal.Set();
 
         foreach (var thread in threads)
@@ -52,7 +50,7 @@ public class Race
         Console.WriteLine("\n🏁 Tävlingen är slut! Här är resultaten:");
         string[] medals = { "🥇", "🥈", "🥉" };
 
-        // Skriv ut slutresultat med medaljsymboler
+        // Skriv ut slutresultat
         foreach (var car in cars.OrderBy(c => c.Placement))
         {
             string medal = car.Placement - 1 < 3 ? medals[car.Placement - 1] : $"#{car.Placement}";
@@ -102,7 +100,6 @@ public class Race
                     // Skriv ut när bilen går i mål
                     Console.WriteLine($"{car.Name} har kommit i mål på plats {currentPlacement}.");
                     
-                    // Lägg till publikens jubel för första platsen
                     if (currentPlacement == 1)
                     {
                         Console.WriteLine("👏👏👏 Publiken jublar och applåderar! 👏👏👏");

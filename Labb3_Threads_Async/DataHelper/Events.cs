@@ -10,22 +10,22 @@ public static class Events
 
         if (eventChance <= 1)
         {
-            Console.WriteLine($"{car.Name} fick slut på bensin! Tankar i 15 sekunder.");
+            Console.WriteLine($"{car.Name} soppatorsk! Tankar i 15 sekunder.");
             Thread.Sleep(15000);
         }
-        else if (eventChance <= 3)
+        else if (eventChance <= 2)
         {
             Console.WriteLine($"{car.Name} fick punktering! Byter däck i 10 sekunder.");
             Thread.Sleep(10000);
         }
-        else if (eventChance <= 8)
+        else if (eventChance <= 5)
         {
-            Console.WriteLine($"{car.Name} fick fågel på vindrutan! Tvättar i 5 sekunder.");
-            Thread.Sleep(5000);
+            Console.WriteLine($"{car.Name} Stenskott på rutan! Byter vindruta 12 sekunders stopp.");
+            Thread.Sleep(12000);
         }
-        else if (eventChance <= 18)
+        else if (eventChance <= 10)
         {
-            car.Speed = Math.Max(10, car.Speed - 1); // Låt inte hastigheten gå under 10
+            car.Speed = Math.Max(10, car.Speed - 5); // Låt inte hastigheten gå under 10
             Console.WriteLine($"{car.Name} har motorproblem! Hastighet sänkt till {car.Speed} km/h.");
         }
     }

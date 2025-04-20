@@ -12,3 +12,4 @@
 /Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.pdb
 /Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.genruntimeconfig.cache
 /Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/ref/Labb3_Threads_Async.dll
+/Users/alexanderek/RiderProjects/Labb3_Threads_Async/Labb3_Threads_Async/obj/Debug/net9.0/Labb3_Threads_Async.sourcelink.json

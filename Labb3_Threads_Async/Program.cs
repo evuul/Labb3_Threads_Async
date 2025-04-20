@@ -4,7 +4,7 @@ namespace Labb3_Threads_Async;
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         var race = new Race();
         race.StartRace();
