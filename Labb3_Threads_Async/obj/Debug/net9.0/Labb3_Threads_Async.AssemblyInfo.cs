@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Labb3_Threads_Async")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b492da205fbe6915927ba735dba155342fb2f057")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+058797b6b04ee6bea032f29e5891a905b3edc0e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Labb3_Threads_Async")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Labb3_Threads_Async")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

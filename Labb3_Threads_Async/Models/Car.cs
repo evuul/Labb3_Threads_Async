@@ -9,7 +9,8 @@ public class Car
     public int Placement { get; set; }
     public double TotalTime { get; set; }
 
-    public Car(string name)
+    // Konstruktor för Car-klassen
+    public Car(string name) 
     {
         Name = name;
         Distance = 0;
